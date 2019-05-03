@@ -12,6 +12,6 @@
       <input type="number" name="columnas" value="">
       <input type="submit" name="" value="crear">
     </form>
-
+ 
   </body>
 </html>
