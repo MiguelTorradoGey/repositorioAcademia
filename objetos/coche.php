@@ -46,6 +46,8 @@ class coche
 //***************** pruebas
 $miCoche = new coche("fiat", "multipla");
 $miOtroCoche = new coche("volvo", "S40");
+    // $miCoche = new coche();
+    // $miOtroCoche = new coche();
 $miCoche->setColor("amarillo");
 $miOtroCoche->setColor("rojo");
 echo "Mi coche 1: " .$miCoche->getColor();
@@ -56,4 +58,5 @@ $miCoche->acelerar();
 $miCoche->acelerar();
 $miCoche->acelerar();
 echo "Mi coche 1: " .$miCoche->getVelocidad();
+
  ?>
