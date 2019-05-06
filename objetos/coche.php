@@ -68,7 +68,14 @@ class coche
       //$this->velocidad -= 10; //frena de 10 en 10
       }
     }
-
+function toString(){
+$resultado = "El coche es marca ".$this->marca;
+$resultado .=" y modelo ".$this->modelo;
+$resultado .=", está ".$this->getEncendido();
+$resultado .=", es de color ".$this->color;
+$resultado .=" y su velocidad es ".$this->velocidad;
+return $resultado;
+}
 
 } // final de la clase coche
 
@@ -87,11 +94,14 @@ echo " Modelo: ".$miCoche->getModelo();
 echo "<br>";
 echo " Mi coche 2: ".$miOtroCoche->getColor();
 echo "<br>";
-// $miCoche->apagar();
-$miCoche->encender();
+$miCoche->apagar();
+// $miCoche->encender();
 $miCoche->acelerar();
 $miCoche->acelerar();
 $miCoche->acelerar();
-echo "Mi coche 1: " .$miCoche->getVelocidad();
+$miCoche->acelerar();
+echo "Mi coche 1: ".$miCoche->getVelocidad();
+echo "<br>";
+echo $miCoche->toString();
 
  ?>
