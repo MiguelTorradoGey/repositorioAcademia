@@ -1,0 +1,14 @@
+RADIO
+_______________
+volumen....................0-10
+frecuencia.................80-110
+encendida..................boolean
+_______________
+get volumen
+get frecuencia
+get estado
+subir volumen
+bajar volumen
+subir frecuencia...........+5
+bajar frecuencia...........-5
+set frecuencia
