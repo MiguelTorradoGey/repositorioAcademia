@@ -15,7 +15,7 @@ class radio{
 function radio(){
   // constructor
   $this->encendida = false;
-  $this->volumen = 5;
+  $this->volumen = 1;
   $this->frecuencia = 80;
 }
 //_______________________________________________ Encendido
@@ -35,14 +35,14 @@ function radio(){
 //_______________________________________________**
 //_______________________________________________ Volumen
   function subirVol(){
-    if($this->volumen > 10 && $this->encendida == true){
+    if($this->volumen > 9 && $this->encendida == true){
       $this->volumen == 10;
     } else {
       $this->volumen ++;
     }
   }
   function bajarVol(){
-    if($this->volumen < 0 && $this->encendida == true){
+    if($this->volumen < 1 && $this->encendida == true){
       $this->volumen == 0;
     } else {
       $this->volumen --;
@@ -89,7 +89,7 @@ $miRadio = new radio();
 // $miRadio->setFrecuencia(100);
 $miRadio->encender();
 // $miRadio->apagar();
-// $miRadio->setFrecuencia(100);
+// $miRadio->setFrecuencia(100); // asignamos un valor de frecuencia en manual
 echo "El dispositivo está: ".$miRadio->getEncendido();
 echo "<br>";
   $miRadio->subirFrec();
