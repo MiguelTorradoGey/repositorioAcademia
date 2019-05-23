@@ -4,11 +4,12 @@
   $nombre = $_POST['nombre'];
   $descripcion = $_POST['descripcion'];
   $precio = $_POST['precio'];
+  $activo = $_POST['activo'];
   $stock = $_POST['stock'];
 
   $sql = "update productos
   set codigo='".$codigo."', nombre='".$nombre."', descripcion='".$descripcion."',
-  precio='".$precio."', activo='".$activo."', fechaUltimaCompra=now()
+  precio='".$precio."', activo='".$activo."', stock='".$stock."', fechaUltimaCompra=now()
   WHERE id=".$id;
   echo $sql."<br>";
 // abrimos la consulta

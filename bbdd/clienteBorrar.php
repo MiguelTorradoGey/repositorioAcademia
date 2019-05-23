@@ -3,7 +3,7 @@
 
   echo "<script type='text/javascript'>confirm('¿Borrar?')</script>";
 
-  if($strconfirm==true){
+  if($strconfirm==false){
     $sql = "delete from clientes where id = $id";
     include "conexion.php";
   // preparamos la consulta

@@ -41,6 +41,7 @@
     <p>
      <a href="clienteNuevo.php"><input type="submit" class="btn btn-success" name="" value="Nuevo"></a>
      <a href="productos.php"><input type="submit" class="btn btn-primary" name="" value="Productos"></a>
+     <a href="ticketNuevo.php"><input type="submit" class="btn btn-primary" name="" value="Crear ticket"></a>
     </p>
 
 

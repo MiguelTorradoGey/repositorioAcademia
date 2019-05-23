@@ -1,17 +1,16 @@
 
 <?php
   $codigo = $_POST['codigo'];
+  // $codigo = "cod-".$id;
   $nombre = $_POST['nombre'];
   $descripcion = $_POST['descripcion'];
   $precio = $_POST['precio'];
   $stock = $_POST['stock'];
   $activo = $_POST['activo'];
 
-  $codigo = $codigo.$id;
-
   $sql = "insert into productos
-  (nombre, descripcion, precio, stock, activo, fechaUltimaCompra)
-  values('$nombre', '$descripcion', '$precio', '$stock', '$activo', now())";
+  (codigo, nombre, descripcion, precio, stock, activo, fechaUltimaCompra)
+  values('$codigo', '$nombre', '$descripcion', '$precio', '$stock', '$activo', now())";
   echo $sql."<br>";
 // abrimos la consulta
   include "conexion.php";
