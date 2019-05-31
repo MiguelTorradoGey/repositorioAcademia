@@ -1,0 +1,24 @@
+.btnRegresar{
+  margin: 20px;
+  width: 400px;
+}
+.btnVolver{
+  margin-left: 130px;
+  /* float: right; */
+}
+.frmNuevo{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 400px;
+  margin: 0px auto;
+  box-shadow: 5px 5px 20px;
+}
+
+.inDatos{
+  margin: 10px;
+  width: 400px;
+  /* display: inline-block; */
+}
+.inDatos label{
+  width: 100px;
+}

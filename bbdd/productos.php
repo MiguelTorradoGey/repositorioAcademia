@@ -6,6 +6,7 @@
     <?php
       include "bootstrap.php";
      ?>
+     <link rel="stylesheet" href="css/productos.css">
   </head>
   <body>
     <?php
@@ -27,10 +28,13 @@
 // *** ______________________________________ ***
      // print_r($clientes);
      echo "<table class='table'>";
-     echo "<tr><th>id</th><th>Código</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th>Stock</th><th>Activo</th><th>Fecha última compra</th></tr>";
+     echo "<tr><th>id</th><th>Imagenes</th><th>Código</th><th>Nombre</th>
+           <th>Descripción</th><th>Precio</th><th>Stock</th><th>Activo</th>
+           <th>Última modificación</th><th></th><th></th></tr>";
 
      foreach ($clientes as $registro) {
        echo "<tr><td>".$registro['id']."</td>";
+       echo "<td><img src='".$registro['imagen']."' alt='' class='rounded-circle imagenes'></td>";
        echo "<td>".utf8_encode($registro['codigo'])."</td>";
        echo "<td>".utf8_encode($registro['nombre'])."</td>";
        echo "<td>".utf8_encode($registro['descripcion'])."</td>";

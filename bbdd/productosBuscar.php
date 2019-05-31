@@ -9,7 +9,7 @@
     <script>
       porCodigo(){
         <?php
-          if(isset($_POST['codigo'])){
+          if(isset($_POST['codigo']) && $_POST['codigo'] != ""){
             $codigo = "%".$_POST['codigo']."%";
             } else {
               $codigo = "";
@@ -19,9 +19,10 @@
           }
          ?>
         }
+
       porNombre(){
         <?php
-          if(isset($_POST['nombre'])){
+          if(isset($_POST['nombre']) && $_POST['nombre'] != ""){
             $nombre = "%".$_POST['nombre']."%";
           } else {
             $nombre = "";
@@ -31,13 +32,38 @@
           }
          ?>
        }
+
+       porDescripcion(){
+         <?php
+           if(isset($_POST['descripcion']) && $_POST['descripcion'] != ""){
+             $descripcion = "%".$_POST['descripcion']."%";
+             } else {
+               $descripcion = "";
+               }
+           if($descripcion != ""){
+             $sql = "select * from productos where descripcion like '".$descripcion."'";
+           }
+          ?>
+         }
+
        <?php
-         if($codigo == "" && $nombre == ""){
+         if($codigo == "" && $nombre == "" && $descripcion == ""){
            $sql = "";
            $informa = "Debe seleccionar un código o un nombre";
          } else {
            $informa = "";
          }
+
+       if(isset($_POST['desde'])){
+         $precioDesde = $_POST['desde'];
+         } else {
+           $precioDesde = 0;
+         } //controlar fecha de origen
+       if(isset($_POST['hasta'])){
+         $precioHasta = $_POST['hasta'];
+         } else {
+           $precioHasta = 0;
+         } //controlar fecha del final
         ?>
     </script>
   </head>
@@ -54,13 +80,26 @@
        <input type="text" name="codigo" value="">
        <input type="submit" onclick="porCodigo()" class="btn btn-success" name="" value="Por código">
        <input type="text" name="nombre" value="">
-       <input type="submit" onclick="porNombre()" class="btn btn-success" name="" value="Por nombre">
-     </form>
+       <input type="submit" onclick="porNombre()" class="btn btn-success" name="" value="Nombre producto">
+       <input type="text" name="descripcion" value="">
+       <input type="submit" onclick="porDescripcion()" class="btn btn-success" name="" value="Por descripción">
+    </form>
+    <form class="" action="productosBuscar.php" method="post">
+      <label for="text">Precio desde</label>
+      <input type="number" name="desde" value="">
+      <label for="text">Precio hasta</label>
+      <input type="number" name="hasta" value="">
+      <input type="submit" name="" value="Filtrar">
+    </form>
 
 
 
       <?php
-echo $sql;
+      if($precioDesde != 0 && $precioHasta != 0)
+      {
+        $sql = "select * FROM productos WHERE precio BETWEEN 1 AND 2";
+      }
+// echo $sql;
       // *** Conectanmos y leemos la base de datos ***
        $consulta = $conexion->prepare($sql);
        $consulta->execute();

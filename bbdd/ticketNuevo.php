@@ -13,6 +13,7 @@
           $id = 0;
         } //controlar id
      ?>
+     <script src="js/calcularValor.js" charset="utf-8"></script>
   </head>
   <body>
     <div class="cabecera">
@@ -80,11 +81,11 @@
           </select>
           <input type="text" name="idTicket" value="<?php echo $id ?>" hidden>
           Unidades
-          <input type="number" name="unidades" value="0" <?php if($id==0) echo'disabled'?>>
+          <input id="unidades" type="number" name="unidades" value="0" <?php if($id==0) echo'disabled'?>>
           Precio
-          <input type="number" name="precio" value="0" <?php if($id==0) echo'disabled'?>>
+          <input id="precio" class="calcular" type="number" name="precio" value="0" <?php if($id==0) echo'disabled'?>>
           Total
-          <input type="text" name="" value="0" id="total" disabled>
+          <input id="total" type="text" name="" value="0" disabled>
           <input type="submit" name="" value="Añadir" <?php if($id==0) echo'disabled'?> >
         </form>
 
@@ -98,8 +99,9 @@
                     (tl.cantidad * tl.precio) * ((100 + tl.iva)/100) as total
                     from ticketsLineas tl
                     join productos p
-                    on tl.idProducto=p.id
-                    where idTicket=".$_GET['id'];
+                    on tl.idProducto = p.id
+                    where idTicket = $id
+                    order by tl.id DESC";
               $consulta = $conexion->prepare($sql);
               $consulta->execute();
               $clientes = $consulta->fetchAll();

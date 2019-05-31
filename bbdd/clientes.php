@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>CLientes</title>
+    <link rel="stylesheet" href="css/clientes.css">
     <?php
        include "bootstrap.php";
      ?>
@@ -29,21 +30,34 @@
      ?>
 
      <h2>Clientes</h2>
-      <form class="" action="clientes.php" method="post">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" value="">
-        <label for="apellidos">Apellidos</label>
-        <input type="text" name="apellidos" value="">
-        <label for="direccion">Dirección</label>
-        <input type="text" name="direccion" value="">
-        <input type="submit" name="" class="btn btn-success" value="BUSCAR">
-      </form>
-    <p>
-     <a href="clienteNuevo.php"><input type="submit" class="btn btn-success" name="" value="Nuevo"></a>
-     <a href="productos.php"><input type="submit" class="btn btn-primary" name="" value="Productos"></a>
-     <a href="ticketNuevo.php"><input type="submit" class="btn btn-primary" name="" value="Crear ticket"></a>
+     <div class="">
+       <form class="buscarCliente" action="clientes.php" method="post">
+         <label for="nombre">Nombre</label>
+         <input class="bc" type="text" name="nombre" value="">
+         <label for="apellidos">Apellidos</label>
+         <input class="bc" type="text" name="apellidos" value="">
+         <label for="direccion">Dirección</label>
+         <input class="bc" type="text" name="direccion" value="">
+         <input type="submit" name="" class="btn btn-success" value="BUSCAR">
+       </form>
+     </div>
+    <p class="bPrimarios">
+     <a href="clienteNuevo.php">
+       <input type="submit" class="btn btn-success" name="" value="Nuevo">
+     </a>
+     <a href="productos.php">
+       <input type="submit" class="btn btn-primary active" name="" value="Productos">
+     </a>
+     <a href="ticketNuevo.php">
+       <input type="submit" class="btn btn-primary active" name="" value="Crear ticket">
+     </a>
+     <a href="ticketsVerFecha.php">
+       <input type="submit" class="btn btn-secondary" name="" value="Tickets por fecha">
+     </a>
+     <a href="ticketVerCreados.php">
+       <input type="submit" class="btn btn-secondary" name="" value="Tickets creados">
+     </a>
     </p>
-
 
      <?php
 // *** Seleccionamos los datos para mpostrar de la base de datos ***
@@ -80,8 +94,10 @@ if($direccion != ""){
      $clientes = $consulta->fetchAll();
 // *** ______________________________________ ***
      // print_r($clientes);
+     echo "<div class='mostrarDatos'>";
      echo "<table class='table'>";
-     echo "<tr><th>id</th><th>Nombre</th><th>Apellidos</th><th>Direccion</th></tr>";
+     echo "<tr><th>id</th><th>Nombre</th><th>Apellidos</th>
+           <th>Direccion</th><th></th></tr>";
 
      foreach ($clientes as $registro) {
        echo "<tr><td>".$registro['id']."</td>";
@@ -90,14 +106,14 @@ if($direccion != ""){
        echo "<td>".utf8_encode($registro['direccion'])."</td>";
        echo '<td><a href="clienteBorrar.php?id='.$registro['id'].'">
        <button type="button" class="btn btn-danger" name="button">
-       Borrar</button> </a>';
-       echo '<td><a href="clienteEditar.php?id='.$registro['id'].'">
+       Borrar</button> </a>
+       <a href="clienteEditar.php?id='.$registro['id'].'">
        <button type="button" class="btn btn-success" name="button">
        Editar</button>  </a></td>';
-
        echo "</tr>";
      }
      echo "</table>";
+     echo "</div>";
       ?>
 
   </body>

@@ -1,0 +1,17 @@
+.busqueda{
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 10px;
+  width: 700px;
+  margin: 10px;
+  float: right;
+}
+.busqueda label{
+  margin-left: 20px;
+}
+.busqueda input{
+  margin-right: 30px;
+}
+.tablaMostrar{
+  margin: 10px;
+}

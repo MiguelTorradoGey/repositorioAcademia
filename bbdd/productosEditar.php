@@ -28,7 +28,7 @@
 
      ?>
 
-     <form class="" action="productosEditarNuevo.php" method="post">
+     <form class="" action="productosEditarNuevo.php" enctype="multipart/form-data" method="post">
        <input type="hidden" name="id" value="<?php echo $id ?>" >
        <p>
        <label for="codigo">Código</label>
@@ -56,6 +56,7 @@
        </p>
        <p>
        <input type="submit" name="" value="GUARDAR">
+       <input type="file" name="image" value="Enviar">
        </p>
 
      </form>
